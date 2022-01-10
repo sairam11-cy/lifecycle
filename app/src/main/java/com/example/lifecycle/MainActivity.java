@@ -1,6 +1,7 @@
 package com.example.lifecycle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
@@ -8,13 +9,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toast.makeText(MainActivity.this,"ON CREATE",Toast.LENGTH_SHORT).show();
+        Toast t= Toast.makeText(MainActivity.this,"ON CREATE",Toast.LENGTH_SHORT);
+        t.setGravity(Gravity.CENTER,0,0);
+        t.show();
     }
     @Override
     protected void onStart() {
         super.onStart();
-
-        Toast.makeText(MainActivity.this,"ON START",Toast.LENGTH_SHORT).show();
+        Toast t= Toast.makeText(MainActivity.this,"ON START",Toast.LENGTH_SHORT);
+              t.setGravity(Gravity.TOP,0,0);
+              t.show();
     }
     @Override
     protected void onResume() {
