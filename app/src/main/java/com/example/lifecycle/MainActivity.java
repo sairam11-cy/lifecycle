@@ -1,7 +1,12 @@
 package com.example.lifecycle;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
@@ -17,7 +22,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         Toast t= Toast.makeText(MainActivity.this,"ON START",Toast.LENGTH_SHORT);
+        View view= t.getView();
+        TextView text = view.findViewById(android.R.id.message);
+        text.setTextSize(30);
+        text.setTextColor(Color.WHITE);
               t.setGravity(Gravity.TOP,0,0);
+              view.getBackground().setColorFilter(Color.BLUE, PorterDuff.Mode.SRC_IN);
               t.show();
     }
     @Override
